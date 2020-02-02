@@ -29,11 +29,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = ZodiacAdapter()
         val zodiacViewModel = ViewModelProviders.of(this).get(ZodiacViewModel::class.java)
+        val adapter = ZodiacAdapter(zodiacViewModel.getZodiacs().value!!)
+        zodiacViewModel.init()
         zodiacViewModel.getZodiacs().observe(this, Observer {
             adapter.notifyDataSetChanged()
-
         })
 
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)

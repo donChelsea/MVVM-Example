@@ -10,8 +10,8 @@ import com.katsidzira.mvvmexample.model.ZodiacList
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.zodiac_item_view.view.*
 
-class ZodiacAdapter(val zodiacList: ZodiacList) : RecyclerView.Adapter<ZodiacAdapter.ZodiacViewHolder>() {
-    private val zodiacs = zodiacList.zodiacList
+class ZodiacAdapter(zodiacList: List<Zodiac>) : RecyclerView.Adapter<ZodiacAdapter.ZodiacViewHolder>() {
+    private val zodiacs = zodiacList
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int) =
         ZodiacViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.zodiac_item_view, p0, false))
